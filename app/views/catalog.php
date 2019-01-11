@@ -68,7 +68,7 @@
 
 					echo "<div class='row'>";
 					foreach ($items as $item) { ?>
-						<div class="col-sm-3">
+						<div class="col-sm-3" >
 							<div class="card">
 								<img class="card-img-top" src="<?php echo $item['image_path']; ?>">
 								<div class="card-body">
@@ -81,6 +81,15 @@
 										<?php echo $item['price']; ?>
 									</p>
 								</div>
+
+
+								<div class="card-footer">
+									<input type="number" class="form-control" value="1">
+									<button type="submit" class="btn btn-block btn-outline-primary add-to-cart" data-id=" <?php echo $item['id']; ?>">Add to cart
+									</button>
+								</div>
+
+
 							</div> <!-- end card -->	
 						</div> <!-- end item col -->
 

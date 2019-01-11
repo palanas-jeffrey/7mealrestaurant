@@ -5,8 +5,8 @@
  
 	<div class="container-fluid">
 		<div class="jumbotron bg-dark">
-			<h1 class="text-center">7meal</h1>
-			<p class="text-center">Masarap kumain lalo na pag nag kamay.</p>
+			<h1 class="text-center text-light">7meal</h1>
+			<p class="text-center text-light">Masarap kumain lalo na pag nag kamay.</p>
 
 		</div>	
 	</div>
