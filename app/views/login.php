@@ -3,7 +3,7 @@
 
 <?php function get_page_content() { ?>
  
-
+<section class="center">
 	<div class="container-fluid">
 		<div class="jumbotron bg-dark">
 			<h4 class="text-center text-white mt-5">Login</h4>
@@ -26,5 +26,14 @@
 			</div>
 	</form>
 
-	
+
+
 <?php }; ?>
+
+
+
+
+</section>
+	
+
+	

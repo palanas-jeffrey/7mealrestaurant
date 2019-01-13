@@ -3,7 +3,9 @@
 
 <?php function get_page_content() { ?>
  
-	<div class="container-fluid">
+
+ <section class="center">
+ 	<div class="container-fluid">
 		<div class="jumbotron bg-dark">
 			<h1 class="text-center text-white">Register</h1>
 		</div>	
@@ -69,3 +71,6 @@
 
 	
 <?php }; ?>
+
+ </section>
+	

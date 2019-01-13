@@ -7,8 +7,8 @@
 	
 	?>
 
-
-	<div class="container-fluid">
+<section class="center">
+		<div class="container-fluid">
 		<div class="row">
 
 			<!-- categories -->
@@ -109,3 +109,5 @@
 
 
 		<?php }; ?>
+</section>
+
