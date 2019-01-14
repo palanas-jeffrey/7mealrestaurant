@@ -1,7 +1,9 @@
 <footer class="row redbg  fixed-bottom px-3 justify-content-center">
 	<small class=" text-white">
 		DISCLAIMER: This site is for educational purposes only. I do not own nor claim to own any content within this site. &copy;7mealRestaurant Inc.
-	</small>	
+	</small>
+	<hr>	
+	<!-- <p>And Jesus said to them, “I am the bread of life. He who comes to Me shall never hunger, and he who believes in Me shall never thirst. -John 6:35 </p> -->
 </footer>
 
 

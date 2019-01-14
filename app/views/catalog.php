@@ -1,22 +1,19 @@
 <?php require_once '../partials/template.php'; ?>
 
 
-<?php function get_page_content() { ?>
+<?php function get_page_content() {
+global $conn; ?>
 
-	<?php require_once '../controllers/connect.php';
-	
-	?>
 
-<section class="center">
-		<div class="container-fluid">
+	<div class="container-fluid">
 		<div class="row">
 
 			<!-- categories -->
 			<div class="col-sm-2">
 				<h2>Categories</h2>
-				<ul class="list-group">
+				<ul class="list-group red">
 					<a href="catalog.php">
-						<li class="list-group-item">All</li>
+						<li class="list-group-item red">All</li>
 					</a>
 
 					<?php 
@@ -34,7 +31,7 @@
 				<h2>Sort</h2>
 				<ul class="list-group border">
 					<a href="../controllers/sort.php?sort=asc">
-						<li class="list-group-item">
+						<li class="list-group-item red">
 							Price(Lowest to Highest)
 						</li>
 					</a>
@@ -85,7 +82,7 @@
 
 								<div class="card-footer">
 									<input type="number" class="form-control" value="1">
-									<button type="submit" class="btn btn-block btn-outline-primary add-to-cart" data-id=" <?php echo $item['id']; ?>">Add to cart
+									<button type="submit" class="btn btn-block btn-outline-danger add-to-cart" data-id=" <?php echo $item['id']; ?>">Add to cart
 									</button>
 								</div>
 
@@ -100,7 +97,7 @@
 				</div>
 			</div>
 
-		</div>
+	</div>
 
 
 
@@ -109,5 +106,4 @@
 
 
 		<?php }; ?>
-</section>
 

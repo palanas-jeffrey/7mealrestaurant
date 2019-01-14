@@ -16,8 +16,16 @@ session_start();
 		unset($_SESSION['cart'][$item_id]);
 	}else{
 		if (isset($_SESSION['cart'][$item_id])) {
+			$update_flag = $_POST['update_from_cart_page'];
+			if ($update_flag == 0) {
+
 			//add the item_quantity as the new value
-			$_SESSION['cart'][$item_id] += $item_quantity;
+			$_SESSION['cart'][$item_id] += $item_quantity;	
+			}else{
+				//in cart page, reassign new value
+				$_SESSION['cart'][$item_id] = $item_quantity;
+			}
+			
 		}else{
 			//if there is no value, assign $item_quantity as the value of $_SESSION['cart'][$item_id]
 			$_SESSION['cart'][$item_id] = $item_quantity;

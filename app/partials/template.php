@@ -15,7 +15,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Passion+One|Prata" rel="stylesheet">
 
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> -->
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<!-- Custom CSS -->
@@ -30,12 +30,14 @@
 </head>
 <body>
 
-	<?php require_once 'header.php';
+	<?php 
+		require_once 'header.php';
+		require_once '../controllers/connect.php';
 
 
      get_page_content();
 
-     // mysqli_close($conn);
+     mysqli_close($conn);
 
 
     require_once 'footer.php';

@@ -2,9 +2,7 @@
 
 
 <?php function get_page_content() { ?>
- 
-
-	
+ 	
 
 	
 <?php }; ?>

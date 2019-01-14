@@ -39,6 +39,7 @@ body{
 }
 section{
 	width: 1200px;
+	min-height: 100vh;
 }
 
 #prof-img{
@@ -68,4 +69,8 @@ section{
 }
 .b-font{
 	font-family: 'Passion One', cursive;
+}
+
+.card{
+	height: 500px;
 }
