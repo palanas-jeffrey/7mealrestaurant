@@ -220,5 +220,14 @@ $(document).ready( () => {
 	});
 
 
+//submit profile form updates
+$('#update_info').click(() => {
+	alert('hello');
+	$('#update_user_details').submit();
+})
+
+
+
+
 
 });
