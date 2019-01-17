@@ -7,6 +7,9 @@
 
 <?php function get_page_content() { 
 
+
+if(!isset($_SESSION['user']) || (isset($_SESSION['user'])) && ($_SESSION['user']['roles_id']) ==2){
+	
 	global $conn;
 	// var_dump($conn);
 	?>
@@ -91,6 +94,11 @@
 </div>
 </div> <!-- end of container -->
 	
+
+<?php }else{
+
+header('location:./error.php');
+	} ?>
 
 	
 <?php }; ?>

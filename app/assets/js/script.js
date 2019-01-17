@@ -1,4 +1,7 @@
 $(document).ready( () => {
+
+
+
 	function validate_registration_form() {
 		let errors = 0;
 		let username = $("#username").val();
@@ -107,6 +110,9 @@ $(document).ready( () => {
 
 	});
 
+
+//===================end 	
+
 	//login and session
 	$("#login").click( (e) => {
 		let username = $("#username").val();
@@ -129,6 +135,8 @@ $(document).ready( () => {
 		});
 
 	});
+
+	//====================end
 
 	//prep for add to cart
 	$(document).on('click', '.add-to-cart', (e) => {
@@ -225,7 +233,6 @@ $('#update_info').click(() => {
 	alert('hello');
 	$('#update_user_details').submit();
 })
-
 
 
 
