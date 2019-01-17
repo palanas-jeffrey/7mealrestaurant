@@ -4,7 +4,7 @@
 <?php function get_page_content() { ?>
  
 
- <section class="center">
+ <section class="center w-bg">
  	<div class="container-fluid">
 		<div class="jumbotron bg-dark">
 			<h1 class="text-center text-white">Register</h1>
@@ -70,7 +70,7 @@
 	
 
 	
-<?php }; ?>
 
  </section>
 	
+<?php }; ?>

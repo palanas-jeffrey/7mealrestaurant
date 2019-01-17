@@ -3,8 +3,9 @@
 
 <?php function get_page_content() { ?>
  
-<section class="center">
-	<div class="container-fluid">
+<section class="center w-bg pt-5">
+	<div class="col-sm-6 center pt-4 g-bg border-round">
+		<div class="container-fluid">
 		<div class="jumbotron bg-dark">
 			<h4 class="text-center text-white mt-5">Login</h4>
 		</div>	
@@ -25,15 +26,17 @@
 				<button type="submit" class="btn btn-primary" id="login">Login</button>
 			</div>
 	</form>
+	
+	</div>
+	
 
-
+</section>
 
 <?php }; ?>
 
 
 
 
-</section>
 	
 
 	

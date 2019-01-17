@@ -8,8 +8,8 @@ if(!isset($_SESSION['user']) || (isset($_SESSION['user'])) && ($_SESSION['user']
  
 global $conn; ?>
 
-
-	<div class="container-fluid">
+<section class="center w-bg">
+		<div class="container-fluid">
 		<div class="row">
 
 			<!-- categories -->
@@ -25,7 +25,7 @@ global $conn; ?>
 					$categories = mysqli_query($conn,$sql);
 					foreach ($categories as $category) {?>
 						<a href="catalog.php?category_id=<?php echo $category['id'] ; ?>">
-							<li class="list-group-item">
+							<li class="list-group-item red">
 								<?php echo $category['name']; ?>	
 							</li>	
 						</a>
@@ -40,7 +40,7 @@ global $conn; ?>
 						</li>
 					</a>
 					<a href="../controllers/sort.php?sort=desc">
-						<li class="list-group-item">
+						<li class="list-group-item red">
 							Price(Highest to Lowest)
 						</li>
 					</a>
@@ -102,6 +102,8 @@ global $conn; ?>
 			</div>
 
 	</div>
+</section>
+
 
 
 

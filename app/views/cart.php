@@ -14,8 +14,8 @@ if(!isset($_SESSION['user']) || (isset($_SESSION['user'])) && ($_SESSION['user']
 	// var_dump($conn);
 	?>
  
-
-	<div class="container my-4">
+	<section class="center w-bg">
+			<div class="container my-4">
 		<div class="row">
 			<div class="col-12">
 				<h1>Cart Page</h1>
@@ -65,7 +65,7 @@ if(!isset($_SESSION['user']) || (isset($_SESSION['user'])) && ($_SESSION['user']
  	 	</td>
  	 	<td class="item_subtotal"><?php echo $subTotal; ?></td>
  	 	<td class="item_action text-center">
- 			<button class="btn btn-danger item-remove" data-id="<?php echo $id; ?>">Remove from cart</button>
+ 			<button class="btn btn-outline-danger item-remove" data-id="<?php echo $id; ?>">Remove from cart</button>
 	 	</td>
  	 </tr>
  	<?php } ?>
@@ -75,7 +75,7 @@ if(!isset($_SESSION['user']) || (isset($_SESSION['user'])) && ($_SESSION['user']
  	 		<td class="text-right font-weight-bold" colspan="4">Total</td>
  	 		<td class="text-right font-weight-bold" id="total_price"><?php echo $cart_total; ?></td>
  	 		<td class="text-center">
- 	 			<a href="./checkout.php" class="btn btn-primary">Proceed to check out</a>
+ 	 			<a href="./checkout.php" class="btn btn-outline-danger">Proceed to check out</a>
  	 		</td>
 
  	 	</tr>
@@ -94,6 +94,9 @@ if(!isset($_SESSION['user']) || (isset($_SESSION['user'])) && ($_SESSION['user']
 </div>
 </div> <!-- end of container -->
 	
+
+
+	</section>
 
 <?php }else{
 

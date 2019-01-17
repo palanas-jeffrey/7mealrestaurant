@@ -5,15 +5,17 @@
 <?php $user = $_SESSION['user']; 
 	// var_dump($_SESSION['user']);
 ?>
-
-	<div class="container">
+	
+	<section class="center w-bg py-5">
+		
+		<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="list-group" id="list-tab" role="tablist">
-					<a class="list-group-item" href="#profile" data-toggle="list" role="tab">
+					<a class="list-group-item btn-outline-danger" href="#profile" data-toggle="list" role="tab">
 						User Information
 					</a>
-					<a class="list-group-item" href="#history" data-toggle="list" role="tab">
+					<a class="list-group-item btn-outline-danger" href="#history" data-toggle="list" role="tab">
 						Order History
 					</a>
 				</div>
@@ -41,7 +43,7 @@
 								<input type="text" class="form-control" id="address" name="address" value="<?php echo $user['address']; ?>">
 								<span class="validation"></span><br>
 								<br>
-								<button type="button" class="btn btn-primary mb-5" id="update_info">Update Info</button>
+								<button type="button" class="btn btn-outline-danger mb-5" id="update_info">Update Info</button>
 							</div>
 						</form>
 					</div>
@@ -88,4 +90,6 @@
 			</div>
 		</div>
 	</div>
+	</section>
+	
 <?php } ?>

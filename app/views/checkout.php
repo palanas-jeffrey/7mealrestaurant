@@ -12,8 +12,8 @@ if(isset($_SESSION['user'])&&$_SESSION['user']['roles_id'] ==2){
 		}
 
 	 ?>
-
-	 <h1>This is the checkout page</h1>
+<section class="center w-bg">
+	<h1 class="text-center">This is the checkout page</h1>
 
 	 <form method="POST" action="../controllers/placeorder.php">
 	 	<div class="container mt-4">
@@ -52,7 +52,7 @@ if(isset($_SESSION['user'])&&$_SESSION['user']['roles_id'] ==2){
 			</div> <!-- end row -->
 
 			<hr>
-			<button type="submit" class="btn btn-primary btn-block">Place Order Now</button>
+			<button type="submit" class="btn btn-outline-danger btn-block">Place Order Now</button>
 
 			<div class="row cart-items mt-4">
 				<div class="table-responsive">
@@ -88,6 +88,9 @@ if(isset($_SESSION['user'])&&$_SESSION['user']['roles_id'] ==2){
 	 </form> <!-- end form -->
 
 
+
+</section>
+	 
 <?php }else{
 
 header('location:./register.php');
