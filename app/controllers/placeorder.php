@@ -56,11 +56,9 @@ function generate_new_transaction_number() {
 		//create a new order
 		$sql = "INSERT INTO orders(user_id, transaction_code, purchase_date, status_id, payment_mode_id) VALUES ('$user_id', '$transaction_number', '$purchase_date', '$status_id', '$payment_mode_id');";
 
-
-
 		$result = mysqli_query($conn, $sql);
-		var_dump($conn);
-
+		echo "testing xx ";
+		
 		//get the latest order ID to associate items for orders_items table
 		$new_order_id = mysqli_insert_id($conn);
 
@@ -77,7 +75,7 @@ function generate_new_transaction_number() {
 				$item = mysqli_fetch_assoc($result);
 
 				//create a new order item
-				$sql = "INSERT INTO order_items (order_id, item_id, quantity, price) VALUES ('$new_order_id', '$item_id', '$qty', '".$item['price']." ')";
+				$sql = "INSERT INTO orders_items (order_id, item_id, quantity, price) VALUES ('$new_order_id', '$item_id', '$qty', '".$item['price']." ')";
 
 				//execute the order item query
 				$result = mysqli_query($conn,$sql);
@@ -121,7 +119,7 @@ function generate_new_transaction_number() {
 	    $mail->Body = $body;
 
 	    // Route user to confirmation page
-	    // header('location: ../views/confirmation.php');===========
+	    header('location: ../views/confirmation.php');
 
 	    $mail->send();
 	    // echo 'Message has been sent';
@@ -163,7 +161,7 @@ function generate_new_transaction_number() {
     $transaction ->setAmount($amount)
                 ->setItemList($item_list)
                 ->setDescription('Payment for Qstore Purchase')
-                ->setInvoiceNumber(uniqid("Qstore_"));
+                ->setInvoiceNumber(uniqid("7meal_"));
 
     $redirectUrls = new RedirectUrls();
     $redirectUrls
