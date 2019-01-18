@@ -1,0 +1,9 @@
+
+
+
+
+
+
+authenticate.php
+
+if(!password_verify($password, $user_info['password'])) 

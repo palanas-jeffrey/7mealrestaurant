@@ -1,9 +1,9 @@
 <?php 
 
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'ecom_db';
+$host = 'localhost';//'db4free.net';
+$username ='root' ;//'mealrestaurant';
+$password ='';//'kainkain';
+$dbname = 'ecom_db';//'meal_db';
 
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
