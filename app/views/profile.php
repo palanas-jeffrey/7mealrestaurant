@@ -32,6 +32,9 @@
 								<label for="username">Username:</label>
 								<input type="text" class="form-control" id="username" name="username" value="<?php echo $user['username']; ?>" disabled>
 								<span class="validation"></span><br>
+								<label for="password">Password:</label>
+								<input type="password" class="form-control" id="password" name="password" value="<?php echo $user['password']; ?>">
+								<span class="validation"></span><br>
 								<label for="firstname">First Name</label>
 								<input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $user['firstname']; ?>">
 								<span class="validation"></span><br>

@@ -8,8 +8,9 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $email = $_POST['email'];
 $address = $_POST['address'];
+$password = password_hash($_POST['password'],PASSWORD_BCRYPT);
 
-$sql_update = "UPDATE users SET firstname='$firstname', lastname='$lastname', email='$email', address='$address' WHERE id=$id;";
+$sql_update = "UPDATE users SET firstname='$firstname',password='$password', lastname='$lastname', email='$email', address='$address' WHERE id=$id;";
 mysqli_query($conn, $sql_update);
 
 $sql_fetch_new ="SELECT * FROM users WHERE id=$id;";

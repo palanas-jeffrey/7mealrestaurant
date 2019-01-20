@@ -148,6 +148,32 @@ $(document).ready( () => {
 
 	//====================end
 
+	//===================end 	
+	// new password request
+	$("#requestPassword").click( (e) =>{
+
+		event.preventDefault();
+		let username = $("#username").val();
+
+
+		$.ajax({
+			"url": '../controllers/recover_password.php',
+			"method": 'POST',
+			"data": {
+				'username': username
+
+			},
+			"success":(data) => {
+			 	alert("Message has been sent. Please go to your email.");
+				window.location.replace("../views/home.php");
+				
+			}
+		})
+	});
+
+
+	//========================end
+
 	//prep for add to cart
 	$(document).on('click', '.add-to-cart', (e) => {
 		//to prevent default behavior and to override it with our own

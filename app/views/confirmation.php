@@ -16,7 +16,7 @@ function get_page_content(){
 
                 <p>Thank you for shopping! Your order is being processed.</p>
 
-                <a class="btn btn-primary" href="./catalog.php">Continue Shopping</a>
+                <a class="btn btn-outline-danger" href="./catalog.php">Continue Shopping</a>
             </div>
         </div>
     </div>
