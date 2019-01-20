@@ -13,7 +13,7 @@ if(isset($_SESSION['user'])&&$_SESSION['user']['roles_id'] ==1){
 <?php global $conn; ?>
 
 
- <section class="center">
+ <section class="center w-bg ">
  	
 	<div class="container">
 	<div class="row">
@@ -54,7 +54,7 @@ if(isset($_SESSION['user'])&&$_SESSION['user']['roles_id'] ==1){
 					<label for="image">Image:</label>
 					<input type="file" id="image" class="form-control" name="image" required>
 				</div>
-				<button type="submit" class="btn btn-block bg-primary">Add New Item</button>
+				<button type="submit" class="btn btn-block btn-outline-danger">Add New Item</button>
 			</form>
 		</div>
 	</div>

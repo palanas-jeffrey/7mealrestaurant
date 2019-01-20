@@ -28,7 +28,7 @@
 			<div class="text-center py-4">
 				<p><a href="./new_password_request.php">Forgot Password</a></p>
 				<a href="./register.php" class="btn btn-secondary">Register</a>
-				<button type="submit" class="btn btn-primary" id="login">Login</button>
+				<button type="submit" class="btn btn-outline-danger" id="login">Login</button>
 			</div>
 	</form>
 	

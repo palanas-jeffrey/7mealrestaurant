@@ -64,7 +64,7 @@
 					
 					<div class="text-center py-5 mb-5 center">
 						<a href="./login.php" class="btn btn-secondary ">Login</a>
-						<button id="add_user" type="button" class=" shadow btn">Register</button>
+						<button id="add_user" type="button" class="btn btn-outline-danger">Register</button>
 
 					</div>
 

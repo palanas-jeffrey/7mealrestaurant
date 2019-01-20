@@ -8,12 +8,13 @@
 		global $conn;
 	?>
  	
-
-
+<section class="center w-bg">
 	<div class="container">
-		<h4>Orders Admin Page</h4>
+		
 		<div class="row">
+
 			<div class="col-sm-8 offset-sm-2">
+				<h2 class="text-center">Orders Admin Page</h2>
 				<table class="table table-striped">
 					<thead>
 						<th>Transaction Code</th>
@@ -48,6 +49,9 @@
 		</div>
 	</div>
 
+</section>
+
+	
 
 <?php }else{
 	header('location: ./error.php');

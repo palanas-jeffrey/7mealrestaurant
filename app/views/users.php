@@ -12,6 +12,7 @@ global $conn;
 
 	?>
 
+<section class="center w-bg">
 	<div class="container">
 		<h4 class="text-center">User Admin Page</h4>
 		<div class="row">
@@ -60,6 +61,8 @@ global $conn;
 			</div><!-- end col -->
 		</div> <!-- end row -->
 	</div> <!-- end container -->
+</section>
+	
 
 
 

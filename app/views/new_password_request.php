@@ -20,7 +20,7 @@
 				<span class="validation"></span>
 			</div>
 			<div class="text-center py-4">
-				<button type="submit" class="btn btn-primary" id="requestPassword">Request New Password</button>
+				<button type="submit" class="btn btn-outline-danger" id="requestPassword">Request New Password</button>
 			</div>
 	</form>
 	

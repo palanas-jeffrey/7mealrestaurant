@@ -12,10 +12,10 @@ global $conn;
 	?>
 
 
-
+<section class="center w-bg">
 	<div class="container">
 		<div class="row">
-			<a href="./new_item.php" class="btn btn-primary">Add New Item</a>
+			<a href="./new_item.php" class="btn btn-outline-secondary">Add New Item</a>
 		</div >
 
 		<?php 
@@ -38,14 +38,16 @@ global $conn;
 						<input type="hidden" value="id of the item">
 					</div> <!--  end of body -->
 					<div class="card-footer">
-						<a href="./edit_item.php?id=<?php echo $item['id'];?>" class="btn btn-primary">Edit Item</a>
-						<a href="../controllers/delete_item.php?id=<?php echo $item['id'];?>" class="btn btn-danger">Delete Item</a>
+						<a href="./edit_item.php?id=<?php echo $item['id'];?>" class="btn btn-outline-secondary">Edit Item</a>
+						<a href="../controllers/delete_item.php?id=<?php echo $item['id'];?>" class="btn btn-outline-danger">Delete Item</a>
 					</div>
 				</div>
 			</div><!-- 	end of col -->
 		<?php } ?>
 		</div> <!-- end of rows -->
 	</div>
+</section>
+	
  	
 	<?php }else{
 
