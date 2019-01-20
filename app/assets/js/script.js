@@ -15,7 +15,7 @@ $(document).ready( () => {
 		//username should be greater than or equal to 10 chars
 		if(username.length < 10) {
 			$("#username").next().html("Username should be at least 10 characters");
-			$("#username").next().style("color", "red");
+			$("#username").next().css("color","red");
 			errors++;
 		} else {
 			$('#username').next().html(' ');
@@ -24,6 +24,7 @@ $(document).ready( () => {
 		//password should be atleast 8 characters
 		if(password.length < 8) {
 			$("#password").next().html("Please provide a stronger password");
+			$("#password").next().css("color","red");
 			errors++;
 		} else {
 			$("#password").next().html(' ');
@@ -32,6 +33,7 @@ $(document).ready( () => {
 		//email should include the @ symbol
 		if(!email.includes("@")) {
 			$("#email").next().html("Please provide a valid email");
+			$("#email").next().css("color","red");
 			errors++;
 		} else {
 			$("#email").next().html(' ');
@@ -40,6 +42,7 @@ $(document).ready( () => {
 		//address
 		if(!address != "") {
 			$("#address").next().html("Please provide a valid address");
+			$("#address").next().css("color","red");
 			errors++;
 		} else {
 			$("#address").next().html('');
@@ -48,6 +51,7 @@ $(document).ready( () => {
 		// firstname
 		if(!firstname != "") {
 			$("#firstname").next().html("Please provide a valid first name");
+			$("#firstname").next().css("color","red");
 			errors++;
 		} else {
 			$("#firstname").next().html(' ');
@@ -56,6 +60,7 @@ $(document).ready( () => {
 		// lastname
 		if(!lastname != "") {
 			$("#lastname").next().html("Please provide a valid last name");
+			$("#lastname").next().css("color","red");
 			errors++;
 		} else {
 			$("#lastname").next().html(' ');
@@ -64,6 +69,7 @@ $(document).ready( () => {
 		//confirm password
 		if(password !== $("#confirm_password").val()) {
 			$("#confirm_password").next().html("Passwords should match");
+			$("#confirm_password").next().css("color","red");
 			errors++;
 		} else {
 			$("#confirm_password").next().html(' ');
