@@ -1,8 +1,11 @@
+<?php $page ="cart"; ?>
+
 <?php require_once '../partials/template.php'; 
 
 	require '../controllers/connect.php';
 
 ?>
+
 
 
 <?php function get_page_content() { 
@@ -11,8 +14,9 @@
 if(!isset($_SESSION['user']) || (isset($_SESSION['user'])) && ($_SESSION['user']['roles_id']) ==2){
 	
 	global $conn;
-	// var_dump($conn);
 	?>
+
+	<?php $page = "cart"; ?>
  
 	<section class="center w-bg">
 			<div class="container my-4">

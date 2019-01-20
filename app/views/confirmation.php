@@ -1,3 +1,5 @@
+<?php $page="confirmation"; ?>
+
 <?php require_once "../partials/template.php";
 function get_page_content(){
 

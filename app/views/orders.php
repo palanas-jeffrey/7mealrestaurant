@@ -1,3 +1,5 @@
+<?php $page="orders"; ?>
+
 <?php require_once '../partials/template.php'; ?>
 
 

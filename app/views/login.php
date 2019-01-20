@@ -1,3 +1,6 @@
+<?php $page="login"; ?>
+
+
 <?php require_once '../partials/template.php'; ?>
 
 
@@ -13,7 +16,7 @@
 	<form>
 			<div class="form-group">
 				<label for="username">Username</label>
-				<input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+				<input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
 				<span class="validation"></span>
 			</div>
 			<div class="form-group">

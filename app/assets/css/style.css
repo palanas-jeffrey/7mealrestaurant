@@ -80,7 +80,7 @@ section{
 }
 
 .card{
-	height: 500px;
+	min-height: 500px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }

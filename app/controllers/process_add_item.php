@@ -14,7 +14,7 @@ $sql = "INSERT INTO items (name,description,price, image_path,category_id) VALUE
 
 mysqli_query($conn, $sql);
 
-header('Location: ../views/catalog.php');
+header('Location: ../views/success_added_item.php');
 // var_dump($sql);
 
 

@@ -1,3 +1,6 @@
+
+<?php $page ="catalog"; ?>
+
 <?php require_once '../partials/template.php'; ?>
 
 
@@ -7,6 +10,8 @@ if(!isset($_SESSION['user']) || (isset($_SESSION['user'])) && ($_SESSION['user']
 
  
 global $conn; ?>
+
+<?php  ?>
 
 <section class="center w-bg">
 		<div class="container-fluid">

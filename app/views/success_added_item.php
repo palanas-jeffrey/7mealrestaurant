@@ -8,8 +8,8 @@
  	
 
 <div class="container">
-	<h1>You don't have access to view this page</h1>
-	<a href="./home.php">Return Home</a>
+	<h1>You have successfully added an item.</h1>
+	<a href="./items.php">Return to Items.</a>
 </div>
 	
 <?php }; ?>

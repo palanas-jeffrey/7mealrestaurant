@@ -1,3 +1,6 @@
+<?php $page="new_item"; ?>
+
+
 <?php require_once '../partials/template.php'; ?>
 
 

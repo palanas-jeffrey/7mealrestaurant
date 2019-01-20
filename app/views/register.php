@@ -1,3 +1,5 @@
+<?php $page="register"; ?>
+
 <?php require_once '../partials/template.php'; ?>
 
 

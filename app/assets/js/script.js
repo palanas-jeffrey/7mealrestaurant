@@ -15,6 +15,7 @@ $(document).ready( () => {
 		//username should be greater than or equal to 10 chars
 		if(username.length < 10) {
 			$("#username").next().html("Username should be at least 10 characters");
+			$("#username").next().style("color", "red");
 			errors++;
 		} else {
 			$('#username').next().html(' ');
@@ -112,28 +113,31 @@ $(document).ready( () => {
 
 
 //===================end 	
+	// login and session
+	$("#login").click( (e) =>{
 
-	//login and session
-	$("#login").click( (e) => {
+		event.preventDefault();
 		let username = $("#username").val();
 		let password = $("#password").val();
 
 		$.ajax({
-			"url" : "../controllers/authenticate.php",
-			"method" : "POST",
+			"url": '../controllers/authenticate.php',
+			"method": 'POST',
 			"data": {
-				'username':username,
-				'password':password
+				'username': username,
+				'password': password
 			},
 			"success":(data) => {
-				if(data == "login_failed") {
-					$("#username").next().html("Please provide correct credentials");
-				} else {
+			 if (data == "login_failed") {
+					$("#username").next().html("Please provide a valid username.");
+					$("#password").next().html("Please enter correct password.");
+					$("#username").next().css("color","red");
+					$("#password").next().css("color","red");
+				}else{
 					window.location.replace("../views/home.php");
 				}
 			}
-		});
-
+		})
 	});
 
 	//====================end
@@ -230,9 +234,9 @@ $(document).ready( () => {
 
 //submit profile form updates
 $('#update_info').click(() => {
-	alert('hello');
+	// alert('hello');
 	$('#update_user_details').submit();
-})
+});
 
 
 
