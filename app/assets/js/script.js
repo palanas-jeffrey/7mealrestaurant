@@ -120,12 +120,41 @@ $(document).ready( () => {
 
 //===================end 	
 	// login and session
-	$("#login").click( (e) =>{
-
-		event.preventDefault();
+	function processLogin(){
+		let errors = 0;
 		let username = $("#username").val();
 		let password = $("#password").val();
 
+		if(username.length < 1) {
+			$("#username").next().html("Please provide a username ");
+			$("#username").next().css("color","red");
+			errors++;
+		} else {
+			$('#username').next().html(' ');
+		}
+		if(password.length <=0 ) {
+			$("#password").next().html("Please provide a password ");
+			$("#password").next().css("color","red");
+			errors++;
+		} else {
+			$('#password').next().html(' ');
+		}
+		if(errors > 0) {
+			return false; //this means there are errors
+		} else {
+			return true;
+		}
+
+	}
+
+	$("#login").click( (e) =>{
+		// event.preventDefault();
+
+		if(processLogin()) {
+
+		let username = $("#username").val();
+		let password = $("#password").val();
+		
 		$.ajax({
 			"url": '../controllers/authenticate.php',
 			"method": 'POST',
@@ -140,36 +169,41 @@ $(document).ready( () => {
 					$("#username").next().css("color","red");
 					$("#password").next().css("color","red");
 				}else{
+					alert("Welcome "+username+"!");
 					window.location.replace("../views/home.php");
 				}
 			}
-		})
+		})	
+		};
+		
+
+
 	});
+
 
 	//====================end
 
 	//===================end 	
 	//new password request
-	// $("#requestPassword").click( (e) =>{
+	$("#requestPassword").click( (e) =>{
 
-	// 	event.preventDefault();
-	// 	let username = $("#username").val();
+		event.preventDefault();
+		let email = $("#email").val();
 		
-	// 	$.ajax({
-	// 		"url": '../controllers/recover_password.php',
-	// 		"method": 'POST',
-	// 		alert('hi');
-	// 		"data": {
-	// 			'email': email
+		$.ajax({
+			"url": '../controllers/recover_password.php',
+			"method": 'POST',
+			"data": {
+				'email': email
 
-	// 		},
-	// 		"success":(data) => {
-	// 		 	alert("Message has been sent. Please go to your email.");
-	// 			window.location.replace("../views/home.php");
+			},
+			"success":(data) => {
+			 	alert("Message has been sent. Please go to your email.");
+				window.location.replace("../views/home.php");
 				
-	// 		}
-	// 	})
-	// });
+			}
+		})
+	});
 
 
 	//========================end

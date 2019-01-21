@@ -13,7 +13,7 @@
 			<h4 class="text-center text-white mt-5">Request for New Password</h4>
 		</div>	
 	</div>
-	<form control="../controllers/recover_password.php" method="POST">
+	<form>
 			<div class="form-group">
 				<label for="email">Email</label>
 				<input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" required>
