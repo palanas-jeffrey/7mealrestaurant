@@ -165,8 +165,10 @@ function generate_new_transaction_number() {
 
     $redirectUrls = new RedirectUrls();
     $redirectUrls
-        ->setReturnUrl('http://192.168.10.20/7meal/app/controllers/pay.php?success=true')
-        ->setCancelUrl('http://192.168.10.20/7meal/app/controllers/pay.php?success=false');
+     ->setReturnUrl('http://mealrestaurant.herokuapp.com/app/controllers/pay.php?success=true')
+        ->setCancelUrl('http://mealrestaurant.herokuapp.com/app/controllers/pay.php?success=false');
+        // ->setReturnUrl('http://192.168.10.20/7meal/app/controllers/pay.php?success=true')
+        // ->setCancelUrl('http://192.168.10.20/7meal/app/controllers/pay.php?success=false');
 
     $payment = new Payment();
     $payment->setIntent('sale')
