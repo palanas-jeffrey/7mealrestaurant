@@ -1,16 +1,16 @@
 <?php 
 
 
-$host = 'db4free.net';
-$username ='mealrestaurant';
-$password ='kainkain';
-$dbname = 'meal_db';
+// $host = 'db4free.net';
+// $username ='mealrestaurant';
+// $password ='kainkain';
+// $dbname = 'meal_db';
 
 
-// $host = 'localhost';
-// $username ='root' ;
-// $password ='';
-// $dbname = 'ecom_db';
+$host = 'localhost';
+$username ='root' ;
+$password ='';
+$dbname = 'ecom_db';
 
 
 $conn = mysqli_connect($host, $username, $password, $dbname);

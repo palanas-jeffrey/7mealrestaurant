@@ -149,27 +149,27 @@ $(document).ready( () => {
 	//====================end
 
 	//===================end 	
-	// new password request
-	$("#requestPassword").click( (e) =>{
+	//new password request
+	// $("#requestPassword").click( (e) =>{
 
-		event.preventDefault();
-		let username = $("#username").val();
+	// 	event.preventDefault();
+	// 	let username = $("#username").val();
+		
+	// 	$.ajax({
+	// 		"url": '../controllers/recover_password.php',
+	// 		"method": 'POST',
+	// 		alert('hi');
+	// 		"data": {
+	// 			'email': email
 
-
-		$.ajax({
-			"url": '../controllers/recover_password.php',
-			"method": 'POST',
-			"data": {
-				'username': username
-
-			},
-			"success":(data) => {
-			 	alert("Message has been sent. Please go to your email.");
-				window.location.replace("../views/home.php");
+	// 		},
+	// 		"success":(data) => {
+	// 		 	alert("Message has been sent. Please go to your email.");
+	// 			window.location.replace("../views/home.php");
 				
-			}
-		})
-	});
+	// 		}
+	// 	})
+	// });
 
 
 	//========================end

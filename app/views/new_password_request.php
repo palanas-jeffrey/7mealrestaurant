@@ -13,10 +13,10 @@
 			<h4 class="text-center text-white mt-5">Request for New Password</h4>
 		</div>	
 	</div>
-	<form>
+	<form control="../controllers/recover_password.php" method="POST">
 			<div class="form-group">
-				<label for="username">Username</label>
-				<input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+				<label for="email">Email</label>
+				<input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" required>
 				<span class="validation"></span>
 			</div>
 			<div class="text-center py-4">

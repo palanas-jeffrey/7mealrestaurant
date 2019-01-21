@@ -3,16 +3,26 @@
 session_start();
 require_once './connect.php';
 //Load Composer's autoloader
+require "../../vendor/autoload.php";
+
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
+
 
 //user id and info
- $username = $_POST['username'];
+ $email = $_POST['email']; 
+ // $username = "jeffreyjeff09";
 
-$sql= "SELECT * FROM users WHERE username ='$username' ";
+$sql= "SELECT * FROM users WHERE email ='$email' ;";
 $result =mysqli_query($conn,$sql);
 $user = mysqli_fetch_assoc($result);
 
 $id = $user['id'];
-
+// var_dump($sql);
 
 function generate_new_password() {
 	$new_password = '';
@@ -35,7 +45,7 @@ function generate_new_password() {
 		$_SESSION['new_gen_password'] = $new_gen_password;
 
 		//create a new order
-echo $new_gen_password;
+// echo $new_gen_password;
 		
 
 
@@ -46,20 +56,22 @@ $new_password = $new_gen_password;
   $password = password_hash($new_password,PASSWORD_DEFAULT);
 // $password = password_hash($new_password,PASSWORD_BCRYPT);
  // $password = $new_password;
-echo"<hr>";
+// echo"<hr>";
 	//update password in data base
-$sql_update = "UPDATE users SET password='$password' WHERE id=$id;";
+$sql_update = "UPDATE users SET password='$password' WHERE id= $id;";
 mysqli_query($conn, $sql_update);
 
 	//get all the details of the password
-echo $password;
+// echo $password;
 
 
-if (mysqli_query($conn, $sql_update)) {
-	die("password_reset");
-} else {
-	echo mysqli_error($conn);
-}
+// if (mysqli_query($conn, $sql_update)) {
+// 	die("password_reset");
+// 		alert ("hi");
+// } else {
+// 	echo mysqli_error($conn);
+// }
+
 
 
 
@@ -69,15 +81,14 @@ if (mysqli_query($conn, $sql_update)) {
 
 
 
-
 	$mail = new PHPMailer(true); 
 	// Passing `true` enables exceptions
 
 
 	$staff_email = '7mealrestaurant@gmail.com';
-	$customer_email = $user['email'];          //
+	$customer_email = $email;          //
 	$subject = '7meal restaurant - Password Recovery';
-	$body = '<div style="text-transform:uppercase;"><h3>New Password: '.$new_gen_password.'</h3></div>'."<div>Please use this as your new password</div>";
+	$body = '<div style="text-transform:uppercase;"><h3>"Please use this as your new password."</h3></div>'."<div>New Password: $new_gen_password</div>";
 	try {
 	    //Server settings
 	    $mail->SMTPDebug = 4;                                 // Enable verbose debug output
@@ -108,13 +119,14 @@ if (mysqli_query($conn, $sql_update)) {
 	    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 	}
 
+
+// if (mysqli_query($conn, $sql_update)) {
+// 	die("password_reset");
+// } else {
+// 	echo mysqli_error($conn);
+// }
+
 		mysqli_close($conn);
-
-
-
-
-
-
 
 
 	// Send email notification to customer
