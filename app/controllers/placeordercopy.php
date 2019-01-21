@@ -3,7 +3,7 @@
 session_start();
 require_once './connect.php';
 //Load Composer's autoloader
-require "../../vendor/autoload.php";
+require '../../vendor/autoload.php';
 
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
@@ -22,6 +22,7 @@ use PayPal\Api\Transaction;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Payment; 
 require "./paypal/start.php";
+
 
 function generate_new_transaction_number() {
 	$ref_number = '';
@@ -42,23 +43,25 @@ function generate_new_transaction_number() {
 }
 
 	//get all the details of the order
+	$user_firstname = $_SESSION['user']['firstname'];
 	$user_id = $_SESSION['user']['id'];
 	$purchase_date = date("Y-m-d G:i:s"); //G is for 12 hour format, i minutes with leading zeros, s seconds with leading zeros
 	$status_id = 1;
 	$payment_mode_id = $_POST['payment_mode'];
 	$address = $_POST['addressLine1'];
 
-	if($payment_mode_id == 1) {
-
+	if ($payment_mode_id == 1) {
+			
 		$transaction_number = generate_new_transaction_number();
 		$_SESSION['new_txn_number'] = $transaction_number;
 
 		//create a new order
-		$sql = "INSERT INTO orders(user_id, transaction_code, purchase_date, status_id, payment_mode_id) VALUES ('$user_id', '$transaction_number', '$purchase_date', '$status_id', '$payment_mode_id');";
+		$sql = "INSERT INTO orders(user_id, transaction_code, purchase_date, status_id, payment_mode_id) VALUES ('$user_id', '$transaction_number', '$purchase_date', '$status_id', '$payment_mode_id'); ";
+
 
 		$result = mysqli_query($conn, $sql);
 		// var_dump($conn);
-		
+
 		//get the latest order ID to associate items for orders_items table
 		$new_order_id = mysqli_insert_id($conn);
 
@@ -67,15 +70,14 @@ function generate_new_transaction_number() {
 			//loop throught the items inside session cart
 			foreach($_SESSION['cart'] as $item_id => $qty) {
 				//get the price of the current item
-				$sql = "SELECT price FROM items WHERE id ='$item_id' ";
+				$sql = "SELECT price FROM items WHERE id ='$item_id'";
 				$result = mysqli_query($conn,$sql);
-				// var_dump($sql);
 
 				//fetch the data from the query
 				$item = mysqli_fetch_assoc($result);
 
 				//create a new order item
-				$sql = "INSERT INTO orders_items (order_id, item_id, quantity, price) VALUES ('$new_order_id', '$item_id', '$qty', '".$item['price']." ')";
+				$sql = "INSERT INTO order_items (order_id, item_id, quantity, price) VALUES ('$new_order_id', '$item_id', '$qty', '".$item['price']." ')";
 
 				//execute the order item query
 				$result = mysqli_query($conn,$sql);
@@ -91,13 +93,12 @@ function generate_new_transaction_number() {
 
 
 	$mail = new PHPMailer(true); 
-	// Passing `true` enables exceptions
+	// Passing true enables exceptions
 
-
-	$staff_email = '7mealrestaurant@gmail.com';
+	$staff_email = 'Caps2Store@gmail.com';
 	$customer_email = $_SESSION['user']['email'];          //
-	$subject = '7meal restaurant - Order Confirmation';
-	$body = '<div style="text-transform:uppercase;"><h3>Reference No.: '.$transaction_number.'</h3></div>'."<div>Ship to $address</div>";
+	$subject = 'Caps2Store Phils - Order Confirmation';
+	$body = '<div><h2>Hello '.$user_firstname.',</h2></div><div style="text-transform:uppercase;"><h3>Reference No.: '.$transaction_number.'</h3></div>'."<div>Ship to $address</div><div><small>This is an automatically generated email – please do not reply to it. If you have any queries regarding your order please email Caps2Store@gmail.com</small></div>";
 	try {
 	    //Server settings
 	    $mail->SMTPDebug = 4;                                 // Enable verbose debug output
@@ -105,12 +106,12 @@ function generate_new_transaction_number() {
 	    $mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
 	    $mail->SMTPAuth = true;                               // Enable SMTP authentication
 	    $mail->Username = $staff_email;                       // SMTP username
-	    $mail->Password = '77librekita';                     // SMTP password
-	    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+	    $mail->Password = 'secretsecret';                     // SMTP password
+	    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, ssl also accepted
 	    $mail->Port = 587;                                    // TCP port to connect to
 
 	    //Recipients
-	    $mail->setFrom($staff_email, '7mealRestaurant');
+	    $mail->setFrom($staff_email, 'Caps2Store');
 	    $mail->addAddress($customer_email);  // Name is optional
 
 	    //Content
@@ -119,6 +120,7 @@ function generate_new_transaction_number() {
 	    $mail->Body = $body;
 
 	    // Route user to confirmation page
+
 	    header('location: ../views/confirmation.php');
 
 	    $mail->send();
@@ -130,7 +132,7 @@ function generate_new_transaction_number() {
 
 		mysqli_close($conn);
 } else {
-    $_SESSION['address'] = $_POST['addressLine1'];
+	$_SESSION['address'] = $_POST['addressLine1'];
     $payer = new Payer();
     $payer->setPaymentMethod('paypal');
 
@@ -160,15 +162,18 @@ function generate_new_transaction_number() {
     $transaction = new Transaction();
     $transaction ->setAmount($amount)
                 ->setItemList($item_list)
-                ->setDescription('Payment for Qstore Purchase')
-                ->setInvoiceNumber(uniqid("7meal_"));
+                ->setDescription('Payment for Caps2Store Purchase')
+                ->setInvoiceNumber(uniqid("Caps2Store"));
 
     $redirectUrls = new RedirectUrls();
     $redirectUrls
-     ->setReturnUrl('http://mealrestaurant.herokuapp.com/app/controllers/pay.php?success=true')
-        ->setCancelUrl('http://mealrestaurant.herokuapp.com/app/controllers/pay.php?success=false');
-        // ->setReturnUrl('http://192.168.10.20/7meal/app/controllers/pay.php?success=true')
-        // ->setCancelUrl('http://192.168.10.20/7meal/app/controllers/pay.php?success=false');
+    // ==============================================================================
+    // make sure to input correct path 
+        ->setReturnUrl('https://caps2store.herokuapp.com/app/controllers/pay.php?success=true')
+        ->setCancelUrl('https://caps2store.herokuapp.com/app/controllers/pay.php?success=false');
+    //http://192.168.10.22/batch19/caps2store/app/controllers/pay.php?success=true
+	//http://192.168.10.22/batch19/caps2store/app/controllers/
+    //https://caps2store.herokuapp.com/app/views/checkout.php
 
     $payment = new Payment();
     $payment->setIntent('sale')
@@ -183,7 +188,7 @@ function generate_new_transaction_number() {
     }
 
     $approvalUrl = $payment->getApprovalLink();
-    header('location: '.$approvalUrl);    
+    header('location: '.$approvalUrl);
 }
 
  ?>
