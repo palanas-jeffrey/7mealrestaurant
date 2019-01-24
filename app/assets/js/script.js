@@ -206,6 +206,72 @@ $(document).ready( () => {
 	});
 
 
+//======================================
+
+	//update password request
+	function verifyRecentPassword(){
+
+		let user_id = $("#user_id").val();
+		let recent_password = $("#recent_password").val();
+		
+		$.ajax({
+			"url": '../controllers/update_password.php',
+			"method": 'POST',
+			"data": {
+				'user_id': user_id,
+				'recent_password': recent_password
+			},
+			"success":(data) => {
+					alert('password verified');
+			}
+		});		
+
+	}
+
+
+	function newPasswordValidation(){
+
+		let errors = 0;
+		let recent_password = $("#recent_password").val();
+		let new_password = $("#new_password").val();
+		// let confirmpassword = $("#confirmpassword").val();
+
+
+		if(recent_password.length <=0) {
+			$("#recent_password").next().html("Please provide a your present password");
+			$("#recent_password").next().css("color","red");
+			errors++;
+		} else {
+			$("#recent_password").next().html(' ');		
+		}
+
+			//confirm password
+		if(new_password.length <=0) {
+			$("#new_password").next().html("Please provide a stronger password");
+			$("#new_password").next().css("color","red");
+			errors++;
+		} else {
+			$("#new_password").next().html(' ');
+		}
+		if(new_password !== $("#confirm_password").val()) {
+			$("#confirm_password").next().html("Passwords should match");
+			$("#confirm_password").next().css("color","red");
+			errors++;
+		} else {
+			$("#confirm_password").next().html(' ');
+			// alert('Password Matched');
+		}
+		if(errors > 0) {
+			return false; 
+		} else {
+			return true;
+		}
+		
+	
+
+	}
+
+
 	//========================end
 
 	//prep for add to cart
